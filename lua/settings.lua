@@ -27,11 +27,6 @@ vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
 vim.cmd('colorscheme spaceduck')
 
--- NERDTree Config
-vim.g.NERDTreeQuitOnOpen = 1
-vim.g.NERDTreeShowHidden = 1
-vim.g.NERDTreeIgnore = { ".pyc", "node_modules" }
-
 -- BarBar Config
 vim.api.nvim_set_var("bufferline", { icons = false, clickable = false, closable = false, maximum_padding = 3 })
 
