@@ -18,9 +18,7 @@ keymapper("n", "<Leader>wk", "<C-W><C-K>", { noremap = true, silent = true })
 keymapper("n", "<Leader>wl", "<C-W><C-L>", { noremap = true, silent = true })
 keymapper("n", "<Leader>wh", "<C-W><C-H>", { noremap = true, silent = true })
 
-keymapper("n", "<Leader><Leader>", ":Telescope file_browser<CR>", { silent = true })
-keymapper("n", "<Leader>ff", ":Telescope find_files<CR>", { silent = true })
-keymapper("n", "<Leader>fb", ":Telescope buffers<CR>", { silent = true })
+keymapper("n", "<Leader><Leader>", ":RnvimrToggle<CR>", { noremap = true, silent = true })
 
 keymapper("n", "<Tab>", ":BufferNext<CR>", { noremap = true, silent = true })
 keymapper("n", "<S-Tab>", ":BufferPrevious<CR>", { noremap = true, silent = true })
@@ -33,6 +31,10 @@ keymapper("n", "<Leader>gg", ":FloatermNew --title='Lazygit' --width=0.85 --heig
 keymapper("n", "<Leader>tn", ":FloatermNew --width=0.88 --height=0.7 --autoclose=1<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>t,", ":FloatermPrev<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>t.", ":FloatermNext<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>tt", ":FloatermToggle<CR>", { noremap = true, silent = true })
 
 keymapper('x', 'K', ':move \'<-2<CR>gv-gv', { noremap = true, silent = true })
 keymapper('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, silent = true })
+
+keymapper("n", "<F4>", ":AsyncTask project-build<CR>", { noremap = true, silent = true })
+keymapper("n", "<F5>", ":AsyncTask project-run<CR>", { noremap = true, silent = true })
