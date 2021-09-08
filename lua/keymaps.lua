@@ -1,4 +1,5 @@
 local keymapper = vim.api.nvim_set_keymap
+local telescopeBuiltin = require("telescope.builtin")
 
 keymapper("n", "<Space>", "<NOP>", { noremap = true, silent = true })
 keymapper("n", "<Up>", "<NOP>", { noremap = true, silent = true })
@@ -18,14 +19,15 @@ keymapper("n", "<Leader>wk", "<C-W><C-K>", { noremap = true, silent = true })
 keymapper("n", "<Leader>wl", "<C-W><C-L>", { noremap = true, silent = true })
 keymapper("n", "<Leader>wh", "<C-W><C-H>", { noremap = true, silent = true })
 
-keymapper("n", "<Leader><Leader>", ":RnvimrToggle<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader><Leader>", ":Telescope find_files theme=get_dropdown<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>bb", ":Telescope buffers previewer=false theme=get_dropdown<CR>", { noremap = true, silent = true })
 
-keymapper("n", "<Tab>", ":BufferNext<CR>", { noremap = true, silent = true })
-keymapper("n", "<S-Tab>", ":BufferPrevious<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>bN", ":BufferMoveNext<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>bP", ":BufferMovePrevious<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>bl", ":BufferPick<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>bd", ":BufferClose<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>ff", ":Explore<CR>", { noremap = true, silent = true })
+
+keymapper("n", "<Tab>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+keymapper("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>bN", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>bP", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
 
 keymapper("n", "<Leader>gg", ":FloatermNew --title='Lazygit' --width=0.85 --height=0.85 --autoclose=2 lazygit<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>tn", ":FloatermNew --width=0.88 --height=0.7 --autoclose=1<CR>", { noremap = true, silent = true })
@@ -36,5 +38,3 @@ keymapper("n", "<Leader>tt", ":FloatermToggle<CR>", { noremap = true, silent = t
 keymapper('x', 'K', ':move \'<-2<CR>gv-gv', { noremap = true, silent = true })
 keymapper('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, silent = true })
 
-keymapper("n", "<F4>", ":AsyncTask project-build<CR>", { noremap = true, silent = true })
-keymapper("n", "<F5>", ":AsyncTask project-run<CR>", { noremap = true, silent = true })
