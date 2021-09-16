@@ -16,18 +16,23 @@ return require('packer').startup(function()
   -- Status Bar
   use {
     'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+		config = function()
+			require "plugins.lualineconfig"
+		end
   }
-
-  -- use { 'neoclide/coc.nvim', branch = 'release' }
   use 'alvan/vim-closetag'
   use 'tpope/vim-surround'
   use 'Raimondi/delimitMate'
   use 'mattn/emmet-vim'
   use 'tpope/vim-commentary'
   use {
-	'nvim-treesitter/nvim-treesitter',
-	run = ':TSUpdate'
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate',
+		event = "BufRead",
+		config = function()
+			require "plugins.treesitterconfig"
+		end
   }
   use 'ryanoasis/vim-devicons'
   use 'editorconfig/editorconfig-vim'
@@ -39,12 +44,24 @@ return require('packer').startup(function()
   use 'airblade/vim-rooter'
   use 'jiangmiao/auto-pairs'
   use 'dylanaraps/wal.vim'
-  use { 'pineapplegiant/spaceduck', branch = 'main' }
-  use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
+  use {
+		'pineapplegiant/spaceduck',
+		branch = 'main',
+		event = "BufRead"
+	}
+	use {
+		'seblj/nvim-tabline',
+		config = function()
+			require("plugins.tablineconfig")
+		end
+	}
   use 'voldikss/vim-floaterm'
   use {
-	'nvim-telescope/telescope.nvim',
-	requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+		'nvim-telescope/telescope.nvim',
+		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+		config = function()
+			require "plugins.telescopeconfig"
+		end
   }
   use 'glepnir/dashboard-nvim'
   use 'folke/tokyonight.nvim'
@@ -52,8 +69,10 @@ return require('packer').startup(function()
   use 'tpope/vim-vinegar'
 	use {
 		'neoclide/coc.nvim',
-		branch = "release"
+		branch = "release",
+		event = "BufRead"
 	}
-	use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+ use "ahmedkhalf/project.nvim"
+ use "nvim-telescope/telescope-project.nvim"
 end)
 
