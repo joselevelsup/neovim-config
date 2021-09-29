@@ -73,10 +73,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
-  ["coc.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/skippy/.local/share/nvim/site/pack/packer/opt/coc.nvim"
+  ["completion-nvim"] = {
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
   ["dashboard-nvim"] = {
     loaded = true,
@@ -102,6 +101,15 @@ _G.packer_plugins = {
     config = { "\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lualineconfig\frequire\0" },
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
+  ["nvim-lspconfig"] = {
+    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0" },
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-lspinstall"] = {
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-tabline"] = {
     config = { "\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.tablineconfig\frequire\0" },
@@ -206,23 +214,27 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\1\0027\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\28plugins.telescopeconfig\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lualineconfig\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-tabline
 time([[Config for nvim-tabline]], true)
 try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.tablineconfig\frequire\0", "config", "nvim-tabline")
 time([[Config for nvim-tabline]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\1\0027\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\28plugins.telescopeconfig\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'coc.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

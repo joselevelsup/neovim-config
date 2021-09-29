@@ -1,7 +1,5 @@
 local DashboardConfig = require("plugins.dashboardconfig")
 
-vim.opt.termguicolors = true
-
 if vim.fn.has("clipboard") then
 	if vim.fn.has("unnamedplus") then
 		vim.o.clipboard = 'unnamedplus'
@@ -10,16 +8,14 @@ if vim.fn.has("clipboard") then
 	end
 end
 
-
 vim.go.encoding = 'utf-8'
 vim.go.hidden = false
 vim.go.number = true
-vim.go.t_Co = '256'
 vim.go.background = 'dark'
 vim.go.syntax = 'enable'
 vim.go.history = 1000
 vim.go.completeopt = "menuone,noselect"
-vim.go.guifont = "FiraCode Nerd Font:h10.5"
+vim.opt.guifont = "GohuFont Nerd Font:h12"
 vim.go.backupcopy = 'yes'
 vim.go.tabstop = 2
 vim.go.shiftwidth = 2
@@ -27,12 +23,14 @@ vim.go.softtabstop = 2
 vim.go.expandtab = true
 vim.go.smarttab = true
 
+vim.g.tokyonight_style = "night"
+
+vim.cmd("set t_Co=256")
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme spaceduck')
+vim.cmd('colorscheme tokyonight')
 
 vim.g.netrw_liststyle = 3
-
 
 vim.g.indentLine_fileTypeExclude = { 'dashboard' }
 vim.g.indentLine_setConceal = 0

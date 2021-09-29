@@ -47,7 +47,6 @@ return require('packer').startup(function()
   use {
 		'pineapplegiant/spaceduck',
 		branch = 'main',
-		event = "BufRead"
 	}
 	use {
 		'seblj/nvim-tabline',
@@ -67,12 +66,17 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
   use 'srcery-colors/srcery-vim'
   use 'tpope/vim-vinegar'
-	use {
-		'neoclide/coc.nvim',
-		branch = "release",
-		event = "BufRead"
+	use "ahmedkhalf/project.nvim"
+	use "nvim-telescope/telescope-project.nvim"
+
+	use { 
+		'neovim/nvim-lspconfig',
+		requires = {
+			{'kabouzeid/nvim-lspinstall'}, {'nvim-lua/completion-nvim'}
+		},
+		config = function()
+			require "plugins.lspconfig"
+		end
 	}
- use "ahmedkhalf/project.nvim"
- use "nvim-telescope/telescope-project.nvim"
 end)
 
