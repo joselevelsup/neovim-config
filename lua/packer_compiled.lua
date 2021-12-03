@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -100,11 +100,6 @@ _G.packer_plugins = {
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  delimitMate = {
-    loaded = true,
-    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/delimitMate",
-    url = "https://github.com/Raimondi/delimitMate"
-  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
@@ -114,6 +109,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
+  },
+  ["fine-cmdline.nvim"] = {
+    config = { "\27LJ\1\2H\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\16fineCmdline\25plugins.util_plugins\frequire\0" },
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/fine-cmdline.nvim",
+    url = "https://github.com/VonHeikemen/fine-cmdline.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -146,21 +147,26 @@ _G.packer_plugins = {
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0" },
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-lspinstall"] = {
-    loaded = true,
-    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/nvim-lspinstall",
-    url = "https://github.com/kabouzeid/nvim-lspinstall"
   },
   ["nvim-tabline"] = {
     config = { "\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.tablineconfig\frequire\0" },
@@ -205,6 +211,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/reply.vim",
     url = "https://github.com/rhysd/reply.vim"
+  },
+  ["searchbox.nvim"] = {
+    config = { "\27LJ\1\2F\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\14searchbox\25plugins.util_plugins\frequire\0" },
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/searchbox.nvim",
+    url = "https://github.com/VonHeikemen/searchbox.nvim"
   },
   spaceduck = {
     loaded = true,
@@ -268,11 +280,6 @@ _G.packer_plugins = {
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/vim-maximizer",
     url = "https://github.com/szw/vim-maximizer"
   },
-  ["vim-multiple-cursors"] = {
-    loaded = true,
-    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/vim-multiple-cursors",
-    url = "https://github.com/terryma/vim-multiple-cursors"
-  },
   ["vim-rooter"] = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/vim-rooter",
@@ -296,14 +303,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lualineconfig\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\1\0027\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\28plugins.telescopeconfig\frequire\0", "config", "telescope.nvim")
@@ -312,6 +311,22 @@ time([[Config for telescope.nvim]], false)
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.lualineconfig\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: searchbox.nvim
+time([[Config for searchbox.nvim]], true)
+try_loadstring("\27LJ\1\2F\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\14searchbox\25plugins.util_plugins\frequire\0", "config", "searchbox.nvim")
+time([[Config for searchbox.nvim]], false)
+-- Config for: fine-cmdline.nvim
+time([[Config for fine-cmdline.nvim]], true)
+try_loadstring("\27LJ\1\2H\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\16fineCmdline\25plugins.util_plugins\frequire\0", "config", "fine-cmdline.nvim")
+time([[Config for fine-cmdline.nvim]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
 -- Config for: nvim-tabline
 time([[Config for nvim-tabline]], true)
 try_loadstring("\27LJ\1\0025\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\26plugins.tablineconfig\frequire\0", "config", "nvim-tabline")

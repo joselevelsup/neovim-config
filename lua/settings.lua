@@ -1,5 +1,3 @@
-local DashboardConfig = require("plugins.dashboardconfig")
-
 if vim.fn.has("clipboard") then
 	if vim.fn.has("unnamedplus") then
 		vim.o.clipboard = 'unnamedplus'
@@ -14,7 +12,7 @@ vim.go.number = true
 vim.go.background = 'dark'
 vim.go.syntax = 'enable'
 vim.go.history = 1000
-vim.go.completeopt = "menuone,noselect"
+vim.go.completeopt = "menu,menuone,noselect"
 vim.opt.guifont = "GohuFont Nerd Font:h12"
 vim.go.backupcopy = 'yes'
 vim.go.tabstop = 2
@@ -24,8 +22,9 @@ vim.go.expandtab = true
 vim.go.smarttab = true
 
 vim.g.tokyonight_style = "night"
+vim.g.material_style = "deep ocean"
 
-vim.cmd("set t_Co=256")
+vim.cmd("set termguicolors")
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
 vim.cmd('colorscheme tokyonight')
@@ -50,11 +49,3 @@ vim.g.vim_jsx_pretty_colorful_config = 1
 -- Emmet Config
 vim.g.user_emmet_mode = 'inv'
 vim.g.user_emmet_settings = user_emmet_settings_dict
-
-vim.g.dashboard_default_executive ='telescope'
-
-vim.g.dashboard_custom_section = DashboardConfig.dashboard_main_menu
-
-vim.g.dashboard_custom_header = DashboardConfig.dashboard_header
-
-vim.g.dashboard_custom_footer = DashboardConfig.dashboard_footer

@@ -1,13 +1,17 @@
-local M = {}
+local present, alpha = pcall(require, "alpha")
+local present2, dashboard = pcall(require, "alpha.themes.dashboard")
 
-M.dashboard_main_menu = {
-   a = { description = { "  Find File                 SPC f f" }, command = "Telescope find_files" },
-   b = { description = { "  Find Word                 SPC f w" }, command = "Telescope live_grep" },
-   c = { description = { "洛 New File                  SPC f n" }, command = "DashboardNewFile" },
-   d = { description = { "  Projects                  SPC p p" }, command = "Telescope project" },
+if not present and present2 then
+	return
+end
+
+local dashboard_menu = {
+	dashboard.button("SPC f f", "  Find File", ":Telescope find_files"),
+	dashboard.button("SPC f w", "  Find Word", ":Telescope live_grep"),
+	dashboard.button("SPC p p", "  Projects", ":Telescope project"),
 }
 
-M.dashboard_header = {
+local dashboard_header = {
 	"   .,;;;;;;;;;;;;;;,. .,;:;;;;;;;;;,.  .,;;;;;;;;;;;'..;;;;;.  .,;;;;;:,.     ",
   "    .l0KKKKKKKKKKKKKx:d0KKKKKKKKKKK0d:cxKKKKKKKKKKKK0olOKK0Kx. ;OKK0KOl.      ",
   "     'kKKKKKKKKK0K0KOdkKKK0KKKKK0KKKkodOKKK00KKKK0KKKkdOK0000c'dK000Kx.			 ",
@@ -29,9 +33,11 @@ M.dashboard_header = {
   "      .                                                              ..      "
 }
 
-M.dashboard_footer = {
- "   ",
- "Rip and Tear with Neovim",
-}
+local dashboard_footer = "Rip and Tear with Neovim"
 
-return M
+
+dashboard.section.header.val = dashboard_header
+dashboard.section.buttons.val = dashboard_menu
+dashboard.section.footer.val = dashboard_footer
+
+alpha.setup(dashboard.opts)
