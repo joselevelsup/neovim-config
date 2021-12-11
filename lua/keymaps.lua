@@ -1,6 +1,5 @@
 local keymapper = vim.api.nvim_set_keymap
 local Terminal = require("toggleterm.terminal").Terminal
-local searchbox = pcall(require, "searchbox")
 
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
@@ -35,17 +34,12 @@ keymapper("n", "<Tab>", ":tabnext<CR>", { noremap = true, silent = true })
 keymapper("n", "<S-Tab>", ":tabprev<CR>", { noremap = true, silent = true })
 
 keymapper("n", "<Leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>tt", ":ToggleTerm<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>tv", ":ToggleTerm direction='vertical'<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>th", ":ToggleTerm direction='horizontal'<CR>", { noremap = true, silent = true })
+
+keymapper("n", "<Leader>tt", ":ToggleTerm direction='vertical' size=75<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>th", ":ToggleTerm direction='horizontal' size=25<CR>", { noremap = true, silent = true })
 
 keymapper('x', 'K', ':move \'<-2<CR>gv-gv', { noremap = true, silent = true })
 keymapper('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, silent = true })
 
 keymapper("n", "<Leader>ot", "<cmd>TroubleToggle<CR>", { noremap = true, silent = true })
 
-keymapper("n", ":", '<cmd>lua require("fine-cmdline").open()<CR>', { noremap = true, silent = true })
-if searchbox then
-	keymapper("n", "/", '<cmd>lua require("searchbox").incsearch()<CR>', { noremap = true, silent = true })
-	keymapper('n', '<Leader>s', '<cmd>lua require("searchbox").replace({confirm = "menu"})<CR>', { noremap = true, silent = true })
-end

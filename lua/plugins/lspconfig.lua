@@ -93,6 +93,20 @@ cmp.setup{
   })
 }
 
+local function setup_diags()
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+		vim.lsp.diagnostic.on_publish_diagnostics,
+		{
+			virtual_text = false,
+			signs = true,
+			update_in_insert = false,
+			underline = true,
+		}
+	)
+end
+
+setup_diags()
+
 local lsp_installer = require "nvim-lsp-installer"
 
 lsp_installer.on_server_ready(function(server)
@@ -108,6 +122,8 @@ lsp_installer.on_server_ready(function(server)
 	server:setup(opts)
 	vim.cmd [[ do User LspAttachBuffers ]]
 end)
+
+
 -- local function setup_servers()
 --   local servers = require'nvim-lsp-installer.servers'
 

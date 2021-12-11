@@ -7,7 +7,7 @@ if vim.fn.has("clipboard") then
 end
 
 vim.go.encoding = 'utf-8'
-vim.go.hidden = false
+vim.go.hidden = true
 vim.go.number = true
 vim.go.background = 'dark'
 vim.go.syntax = 'enable'
@@ -20,11 +20,11 @@ vim.go.shiftwidth = 2
 vim.go.softtabstop = 2
 vim.go.expandtab = true
 vim.go.smarttab = true
+vim.o.termguicolors = true
 
 vim.g.tokyonight_style = "night"
 vim.g.material_style = "deep ocean"
 
-vim.cmd("set termguicolors")
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
 vim.cmd('colorscheme tokyonight')

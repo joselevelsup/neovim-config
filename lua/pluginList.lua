@@ -39,7 +39,30 @@ return require('packer').startup({function()
 			require("plugins.tablineconfig")
 		end
 	}
-	use "akinsho/toggleterm.nvim"
+	use {
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("toggleterm").setup{
+				size = function(term)
+					if term.direction == "horizontal" then
+						return 25
+					elseif term.direction == "vertical" then
+						return 75
+					end
+				end,
+				open_mapping = [[<C-\>]],
+				direction = "vertical",
+				hide_numbers = true, -- hide the number column in toggleterm buffers
+				shade_filetypes = {},
+				shade_terminals = false,
+				shading_factor = 1, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+				start_in_insert = true,
+				insert_mappings = true, -- whether or not the open mapping applies in insert mode
+				persist_size = true,
+				close_on_exit = true,
+			}
+		end
+	}
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
@@ -102,23 +125,6 @@ return require('packer').startup({function()
 
 	use 'lewis6991/impatient.nvim'
 
-	-- Util Plugins
-	use {
-		'VonHeikemen/fine-cmdline.nvim',
-		requires = {
-			{'MunifTanjim/nui.nvim'}
-		},
-		config = function()
-			require("plugins.util_plugins").fineCmdline()
-		end
-	}
-
-	use {
-		'VonHeikemen/searchbox.nvim',
-		requires = {
-			{'MunifTanjim/nui.nvim'}
-		}
-	}
 end,
 	config = {
 		compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
