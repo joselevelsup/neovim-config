@@ -56,7 +56,14 @@ local Headers = {
 	}
 }
 
-local dashboard_footer = "Rip and Tear with Neovim"
+local quotes = {
+	"Tell me...do you have nothing to say to your codebase...before you write more code? \n \n \n \t \t \t \t \t No.",
+	"Rip and Tear with Neovim",
+	"Your affinity for documentation is apparent. I'm confident you'll find something useful there.",
+	"You will remain... unbroken... for your code... is eternal."
+}
+
+local dashboard_footer = quotes[math.random(#quotes)]
 
 dashboard.section.header.val = Headers[math.random(#Headers)]
 dashboard.section.buttons.val = dashboard_menu
