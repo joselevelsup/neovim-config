@@ -27,7 +27,7 @@ vim.g.material_style = "deep ocean"
 
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme kanagawa')
 
 vim.g.netrw_liststyle = 3
 

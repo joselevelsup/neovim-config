@@ -103,6 +103,8 @@ return require('packer').startup({function()
 			require "plugins.lspconfig"
 		end
 	}
+
+	use "ray-x/lsp_signature.nvim"
   use 'alvan/vim-closetag'
   use 'tpope/vim-surround'
   use 'mattn/emmet-vim'
@@ -122,6 +124,7 @@ return require('packer').startup({function()
   use 'folke/tokyonight.nvim'
   use 'srcery-colors/srcery-vim'
 	use 'marko-cerovac/material.nvim'
+	use 'rebelot/kanagawa.nvim'
 
 	use 'lewis6991/impatient.nvim'
 
