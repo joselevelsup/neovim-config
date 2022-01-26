@@ -21,6 +21,8 @@ vim.go.softtabstop = 2
 vim.go.expandtab = true
 vim.go.smarttab = true
 vim.o.termguicolors = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.g.tokyonight_style = "night"
 vim.g.material_style = "deep ocean"

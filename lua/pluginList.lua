@@ -33,12 +33,14 @@ return require('packer').startup({function()
 		end
 	}
 	use 'ryanoasis/vim-devicons'
+
 	use {
 		'seblj/nvim-tabline',
 		config = function()
 			require("plugins.tablineconfig")
 		end
 	}
+
 	use {
 		"akinsho/toggleterm.nvim",
 		config = function()
@@ -63,6 +65,14 @@ return require('packer').startup({function()
 			}
 		end
 	}
+
+	use { 
+		'goolord/alpha-nvim',
+		config = function()
+			require("plugins.dashboardconfig")
+		end
+	}
+
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
@@ -70,14 +80,13 @@ return require('packer').startup({function()
 			require "plugins.telescopeconfig"
 		end
 	}
+
 	use { 
-		'goolord/alpha-nvim',
-		config = function()
-			require("plugins.dashboardconfig")
-		end
+		"nvim-telescope/telescope-file-browser.nvim" 
 	}
-	use 'tpope/vim-vinegar'
+
 	use "ahmedkhalf/project.nvim"
+
 	use "nvim-telescope/telescope-project.nvim"
 
 	use {
@@ -116,6 +125,8 @@ return require('packer').startup({function()
   use 'rhysd/reply.vim'
   use 'airblade/vim-rooter'
   use 'jiangmiao/auto-pairs'
+
+	-- Colorschemes
   use 'dylanaraps/wal.vim'
   use {
 		'pineapplegiant/spaceduck',

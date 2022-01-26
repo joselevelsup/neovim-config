@@ -6,9 +6,8 @@ if not present and present2 then
 end
 
 local dashboard_menu = {
-	dashboard.button("SPC f f", "  Find File", ":Telescope find_files"),
-	dashboard.button("SPC f w", "  Find Word", ":Telescope live_grep"),
-	dashboard.button("SPC p p", "  Projects", ":Telescope project"),
+	dashboard.button("SPC f f", "  Find File", ":Telescope find_files<CR>"),
+	dashboard.button("SPC p p", "  Projects", ":Telescope project<CR>")
 }
 
 local Headers = {
