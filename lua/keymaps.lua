@@ -22,10 +22,14 @@ keymapper("i", "<Right>", "<NOP>", { noremap = true, silent = true })
 
 keymapper("n", "<Leader>w", "<C-W>", { noremap = true, silent = true })
 
-keymapper("n", "<Leader><Leader>", ":Telescope find_files theme=get_ivy<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader><Leader>", ":Telescope find_files hidden=true theme=get_ivy<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>pp", ":Telescope project theme=get_dropdown<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>bb", ":Telescope buffers previewer=false theme=get_ivy<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>ff", ":Telescope file_browser hidden=true<CR>", { noremap = true, silent = true })
+
+keymapper("n", "<Leader>ff", ":Explore<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>fv", ":Vexplore<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>fh", ":Hexplore<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>ft", ":Texplore<CR>", { noremap = true, silent = true })
 
 keymapper("n", "<Tab>", ":tabnext<CR>", { noremap = true, silent = true })
 keymapper("n", "<S-Tab>", ":tabprev<CR>", { noremap = true, silent = true })

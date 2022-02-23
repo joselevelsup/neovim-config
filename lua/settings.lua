@@ -21,15 +21,15 @@ vim.go.softtabstop = 2
 vim.go.expandtab = true
 vim.go.smarttab = true
 vim.o.termguicolors = true
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.o.cursorcolumn = true
+vim.o.cursorline = true
 
 vim.g.tokyonight_style = "night"
 vim.g.material_style = "deep ocean"
 
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme kanagawa')
+vim.cmd('colorscheme spaceduck')
 
 vim.g.netrw_liststyle = 3
 
@@ -51,3 +51,5 @@ vim.g.vim_jsx_pretty_colorful_config = 1
 -- Emmet Config
 vim.g.user_emmet_mode = 'inv'
 vim.g.user_emmet_settings = user_emmet_settings_dict
+
+vim.g.neoformat_try_node_exe = 1

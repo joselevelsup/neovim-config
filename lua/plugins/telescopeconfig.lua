@@ -5,20 +5,9 @@ if not present then
 end
 
 telescope.load_extension("project");
-telescope.load_extension("file_browser")
 
 telescope.setup{
   defaults = {
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-			'--hidden'
-    },
     prompt_prefix = "> ",
     selection_caret = "> ",
     entry_prefix = "  ",
@@ -35,7 +24,7 @@ telescope.setup{
       },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = { ".git" },
+    file_ignore_patterns = { ".git", "node_modules" },
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     winblend = 0,
     border = {},

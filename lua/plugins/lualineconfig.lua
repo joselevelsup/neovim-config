@@ -25,7 +25,7 @@ end
 
 lualine.setup{
 	options = {
-		theme = "kanagawa",
+		theme = "spaceduck",
 		section_separators = {
 			left = "",
 			right = ""

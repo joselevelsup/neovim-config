@@ -20,7 +20,7 @@ return require('packer').startup({function()
 		'hoob3rt/lualine.nvim',
 		requires = {'kyazdani42/nvim-web-devicons', opt = true},
 		config = function()
-			require("plugins.lualineconfig")
+			require "plugins.lualineconfig"
 		end
 	}
 
@@ -32,6 +32,11 @@ return require('packer').startup({function()
 			require "plugins.treesitterconfig"
 		end
 	}
+
+	use 'tpope/vim-vinegar'
+
+	use 'sbdchd/neoformat'
+
 	use 'ryanoasis/vim-devicons'
 
 	use {
@@ -69,7 +74,7 @@ return require('packer').startup({function()
 	use { 
 		'goolord/alpha-nvim',
 		config = function()
-			require("plugins.dashboardconfig")
+			require "plugins.dashboardconfig"
 		end
 	}
 
@@ -79,10 +84,6 @@ return require('packer').startup({function()
 		config = function()
 			require "plugins.telescopeconfig"
 		end
-	}
-
-	use { 
-		"nvim-telescope/telescope-file-browser.nvim" 
 	}
 
 	use "ahmedkhalf/project.nvim"
@@ -141,6 +142,6 @@ return require('packer').startup({function()
 
 end,
 	config = {
-		compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+		compile_path = vim.fn.stdpath('config')..'/plugin/packer_compiled.lua'
 	}})
 
