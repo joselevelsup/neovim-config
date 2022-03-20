@@ -1,5 +1,4 @@
 local cmp = require'cmp'
-local lspkind = require'lspkind'
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -133,6 +132,7 @@ lsp_installer.on_server_ready(function(server)
 		on_attach = function(client, bufnr)
 			if client.name == "tsserver" then
 				client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
 			end
 
 			local opts = { noremap = true, silent = true }
@@ -160,7 +160,6 @@ lsp_installer.on_server_ready(function(server)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-			vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 		end,
 	}
 
@@ -168,3 +167,23 @@ lsp_installer.on_server_ready(function(server)
 	vim.cmd [[ do User LspAttachBuffers ]]
 end)
 
+local null_ls = require "null-ls"
+
+null_ls.setup({
+	sources = {
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.code_actions.eslint,
+		null_ls.builtins.diagnostics.cspell,
+		null_ls.builtins.formatting.prettier
+	},
+	on_attach = function(client)
+		if client.supports_method("textDocument/formatting") then
+				vim.cmd([[
+				augroup LspFormatting
+						autocmd! * <buffer>
+						autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+				augroup END
+				]])
+		end
+	end
+})

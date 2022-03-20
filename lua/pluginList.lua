@@ -35,14 +35,13 @@ return require('packer').startup({function()
 
 	use 'tpope/vim-vinegar'
 
-	use 'sbdchd/neoformat'
-
 	use 'ryanoasis/vim-devicons'
 
 	use {
-		'seblj/nvim-tabline',
+		'romgrk/barbar.nvim',
+		requires = {'kyazdani42/nvim-web-devicons', opt = true},
 		config = function()
-			require("plugins.tablineconfig")
+			require("plugins.tabconfig")
 		end
 	}
 
@@ -100,14 +99,14 @@ return require('packer').startup({function()
 	use { 
 		'neovim/nvim-lspconfig',
 		requires = {
-			{'williamboman/nvim-lsp-installer'}, 
+			{'williamboman/nvim-lsp-installer'},
 			{'hrsh7th/nvim-cmp'},
-			{'hrsh7th/cmp-nvim-lsp'}, 
-			{'hrsh7th/cmp-buffer'}, 
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-buffer'},
 			{'L3MON4D3/LuaSnip'},
 			{'saadparwaiz1/cmp_luasnip'},
-			{'onsails/lspkind-nvim'},
-			{'rafamadriz/friendly-snippets'}
+			{'rafamadriz/friendly-snippets'},
+			{'jose-elias-alvarez/null-ls.nvim'}
 		},
 		config = function()
 			require "plugins.lspconfig"

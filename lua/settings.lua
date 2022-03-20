@@ -13,7 +13,6 @@ vim.go.background = 'dark'
 vim.go.syntax = 'enable'
 vim.go.history = 1000
 vim.go.completeopt = "menu,menuone,noselect"
-vim.opt.guifont = "GohuFont Nerd Font:h12"
 vim.go.backupcopy = 'yes'
 vim.go.tabstop = 2
 vim.go.shiftwidth = 2
@@ -24,14 +23,15 @@ vim.o.termguicolors = true
 vim.o.cursorcolumn = true
 vim.o.cursorline = true
 
+vim.g.netrw_bufsettings = "nohidden noma nomod nonu nowrap ro buflisted"
+vim.g.netrw_liststyle = 3
+
 vim.g.tokyonight_style = "night"
 vim.g.material_style = "deep ocean"
 
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme spaceduck')
-
-vim.g.netrw_liststyle = 3
+vim.cmd('colorscheme kanagawa')
 
 vim.g.indentLine_fileTypeExclude = { 'dashboard' }
 vim.g.indentLine_setConceal = 0
@@ -51,5 +51,3 @@ vim.g.vim_jsx_pretty_colorful_config = 1
 -- Emmet Config
 vim.g.user_emmet_mode = 'inv'
 vim.g.user_emmet_settings = user_emmet_settings_dict
-
-vim.g.neoformat_try_node_exe = 1

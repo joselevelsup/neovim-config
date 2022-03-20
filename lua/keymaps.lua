@@ -31,8 +31,8 @@ keymapper("n", "<Leader>fv", ":Vexplore<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>fh", ":Hexplore<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>ft", ":Texplore<CR>", { noremap = true, silent = true })
 
-keymapper("n", "<Tab>", ":tabnext<CR>", { noremap = true, silent = true })
-keymapper("n", "<S-Tab>", ":tabprev<CR>", { noremap = true, silent = true })
+keymapper("n", "<Tab>", ":BufferNext<CR>", { noremap = true, silent = true })
+keymapper("n", "<S-Tab>", ":BufferPrev<CR>", { noremap = true, silent = true })
 
 keymapper("n", "<Leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
