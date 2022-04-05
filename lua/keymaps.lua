@@ -26,13 +26,10 @@ keymapper("n", "<Leader><Leader>", ":Telescope find_files hidden=true theme=get_
 keymapper("n", "<Leader>pp", ":Telescope project theme=get_dropdown<CR>", { noremap = true, silent = true })
 keymapper("n", "<Leader>bb", ":Telescope buffers previewer=false theme=get_ivy<CR>", { noremap = true, silent = true })
 
-keymapper("n", "<Leader>ff", ":Explore<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>fv", ":Vexplore<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>fh", ":Hexplore<CR>", { noremap = true, silent = true })
-keymapper("n", "<Leader>ft", ":Texplore<CR>", { noremap = true, silent = true })
+keymapper("n", "<Leader>ff", ":Telescope file_browser theme=ivy hidden=true<CR>", { noremap = true, silent = true })
 
-keymapper("n", "<Tab>", ":BufferNext<CR>", { noremap = true, silent = true })
-keymapper("n", "<S-Tab>", ":BufferPrev<CR>", { noremap = true, silent = true })
+keymapper("n", "<Tab>", ":bn<CR>", { noremap = true, silent = true })
+keymapper("n", "<S-Tab>", ":bp<CR>", { noremap = true, silent = true })
 
 keymapper("n", "<Leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 

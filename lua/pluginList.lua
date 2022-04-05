@@ -33,17 +33,7 @@ return require('packer').startup({function()
 		end
 	}
 
-	use 'tpope/vim-vinegar'
-
 	use 'ryanoasis/vim-devicons'
-
-	use {
-		'romgrk/barbar.nvim',
-		requires = {'kyazdani42/nvim-web-devicons', opt = true},
-		config = function()
-			require("plugins.tabconfig")
-		end
-	}
 
 	use {
 		"akinsho/toggleterm.nvim",
@@ -88,6 +78,7 @@ return require('packer').startup({function()
 	use "ahmedkhalf/project.nvim"
 
 	use "nvim-telescope/telescope-project.nvim"
+	use "nvim-telescope/telescope-file-browser.nvim"
 
 	use {
 		"folke/trouble.nvim",
@@ -135,6 +126,7 @@ return require('packer').startup({function()
   use 'folke/tokyonight.nvim'
   use 'srcery-colors/srcery-vim'
 	use 'marko-cerovac/material.nvim'
+	use "EdenEast/nightfox.nvim"
 	use 'rebelot/kanagawa.nvim'
 
 	use 'lewis6991/impatient.nvim'

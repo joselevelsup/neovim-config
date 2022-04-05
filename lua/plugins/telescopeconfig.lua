@@ -5,6 +5,7 @@ if not present then
 end
 
 telescope.load_extension("project");
+telescope.load_extension("file_browser")
 
 telescope.setup{
   defaults = {
@@ -24,7 +25,7 @@ telescope.setup{
       },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = { ".git", "node_modules" },
+    file_ignore_patterns = { "^.git", "node_modules" },
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     winblend = 0,
     border = {},

@@ -25,13 +25,16 @@ vim.o.cursorline = true
 
 vim.g.netrw_bufsettings = "nohidden noma nomod nonu nowrap ro buflisted"
 vim.g.netrw_liststyle = 3
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 
 vim.g.tokyonight_style = "night"
 vim.g.material_style = "deep ocean"
 
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme kanagawa')
+vim.cmd('colorscheme nightfox')
 
 vim.g.indentLine_fileTypeExclude = { 'dashboard' }
 vim.g.indentLine_setConceal = 0

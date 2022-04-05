@@ -130,10 +130,8 @@ lsp_installer.on_server_ready(function(server)
 		},
 		settings = {},
 		on_attach = function(client, bufnr)
-			if client.name == "tsserver" then
-				client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-			end
+			client.resolved_capabilities.document_formatting = false
+			client.resolved_capabilities.document_range_formatting = false
 
 			local opts = { noremap = true, silent = true }
 
@@ -154,7 +152,7 @@ lsp_installer.on_server_ready(function(server)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-			vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+			vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>', opts)
@@ -171,13 +169,17 @@ local null_ls = require "null-ls"
 
 null_ls.setup({
 	sources = {
+		-- Javascript/Typescript
 		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.code_actions.eslint,
-		null_ls.builtins.diagnostics.cspell,
-		null_ls.builtins.formatting.prettier
+		null_ls.builtins.formatting.prettier,
+		-- Go
+		null_ls.builtins.diagnostics.revive,
+		null_ls.builtins.formatting.gofmt,
+		null_ls.builtins.formatting.goimports,
 	},
 	on_attach = function(client)
-		if client.supports_method("textDocument/formatting") then
+		if client.resolved_capabilities.document_formatting then
 				vim.cmd([[
 				augroup LspFormatting
 						autocmd! * <buffer>
