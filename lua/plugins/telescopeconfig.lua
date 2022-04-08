@@ -17,12 +17,12 @@ telescope.setup{
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
     layout_config = {
-      horizontal = {
-        mirror = false,
-      },
-      vertical = {
-        mirror = false,
-      },
+			horizontal = {
+				height = function(_, _, max_lines)
+					return math.min(max_lines * 1.2, 40)
+				end,
+				width = 0.7
+			},
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = { "^.git", "node_modules" },
