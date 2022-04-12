@@ -22,12 +22,12 @@ vim.go.smarttab = true
 vim.o.termguicolors = true
 vim.o.cursorcolumn = true
 vim.o.cursorline = true
+vim.o.guifont = "JetBrainsMono Nerd Font:h9"
 
 vim.g.netrw_bufsettings = "nohidden noma nomod nonu nowrap ro buflisted"
 vim.g.netrw_liststyle = 3
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
 
 vim.g.tokyonight_style = "night"
 vim.g.material_style = "deep ocean"

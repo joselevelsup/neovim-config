@@ -35,6 +35,11 @@ return require('packer').startup({function()
 
 	use 'ryanoasis/vim-devicons'
 
+	use { 
+		'TimUntersberger/neogit', 
+		requires = 'nvim-lua/plenary.nvim' 
+	}
+
 	use {
 		"akinsho/toggleterm.nvim",
 		config = function()

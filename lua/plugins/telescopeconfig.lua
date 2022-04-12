@@ -43,7 +43,10 @@ telescope.setup{
   },
 	extensions = {
 		project = {
-			project = {}
+			project = {
+				display_type = "full",
+				hidden_files = true
+			},
 		}
 	}
 }
