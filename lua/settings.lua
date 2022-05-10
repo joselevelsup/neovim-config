@@ -34,7 +34,7 @@ vim.g.material_style = "deep ocean"
 
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme nightfox')
+vim.cmd('colorscheme mosel')
 
 vim.g.indentLine_fileTypeExclude = { 'dashboard' }
 vim.g.indentLine_setConceal = 0

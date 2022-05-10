@@ -25,7 +25,8 @@ end
 
 lualine.setup{
 	options = {
-		theme = "nightfox",
+		theme = "mosel",
+		globalstatus = true,
 		section_separators = {
 			left = "",
 			right = ""

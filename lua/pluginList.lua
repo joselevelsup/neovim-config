@@ -25,19 +25,19 @@ return require('packer').startup({function()
 	}
 
 	use {
+		'kdheepak/tabline.nvim',
+		config = function()
+			require "plugins.tabconfig"
+		end,
+	}
+
+	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		event = "BufRead",
 		config = function()
 			require "plugins.treesitterconfig"
 		end
-	}
-
-	use 'ryanoasis/vim-devicons'
-
-	use { 
-		'TimUntersberger/neogit', 
-		requires = 'nvim-lua/plenary.nvim' 
 	}
 
 	use {
@@ -51,7 +51,7 @@ return require('packer').startup({function()
 						return 75
 					end
 				end,
-				open_mapping = [[<C-\>]],
+				open_mapping = [[<C-t>]],
 				direction = "vertical",
 				hide_numbers = true, -- hide the number column in toggleterm buffers
 				shade_filetypes = {},
@@ -84,13 +84,6 @@ return require('packer').startup({function()
 
 	use "nvim-telescope/telescope-project.nvim"
 	use "nvim-telescope/telescope-file-browser.nvim"
-
-	use {
-		"folke/trouble.nvim",
-		config = function()
-			require("trouble").setup()
-		end
-	}
 
 	use { 
 		'neovim/nvim-lspconfig',
@@ -133,6 +126,7 @@ return require('packer').startup({function()
 	use 'marko-cerovac/material.nvim'
 	use "EdenEast/nightfox.nvim"
 	use 'rebelot/kanagawa.nvim'
+	use 'Domeee/mosel.nvim'
 
 	use 'lewis6991/impatient.nvim'
 

@@ -5,7 +5,19 @@ if not present then
 end
 
 treesitter_config.setup{
-	ensure_installed = "maintained",
+	ensure_installed = {
+		"bash",
+		"css",
+		"dockerfile",
+		"go",
+		"gomod",
+		"graphql",
+		"javascript",
+		"json",
+		"jsonc",
+		"lua",
+		"typescript",
+	},
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = true

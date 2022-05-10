@@ -146,10 +146,10 @@ _G.packer_plugins = {
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
   },
-  neogit = {
+  ["mosel.nvim"] = {
     loaded = true,
-    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/mosel.nvim",
+    url = "https://github.com/Domeee/mosel.nvim"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -180,7 +180,7 @@ _G.packer_plugins = {
   ["nvim-treesitter"] = {
     config = { "\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29plugins.treesitterconfig\frequire\0" },
     loaded = false,
-    needs_bufread = true,
+    needs_bufread = false,
     only_cond = false,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/opt/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -225,6 +225,12 @@ _G.packer_plugins = {
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/srcery-vim",
     url = "https://github.com/srcery-colors/srcery-vim"
   },
+  ["tabline.nvim"] = {
+    config = { "\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.tabconfig\frequire\0" },
+    loaded = true,
+    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/tabline.nvim",
+    url = "https://github.com/kdheepak/tabline.nvim"
+  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
@@ -242,7 +248,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\nU\0\1\2\0\3\0\f9\1\0\0\a\1\1\0X\1\3€)\1\25\0L\1\2\0X\1\5€9\1\0\0\a\1\2\0X\1\2€)\1K\0L\1\2\0K\0\1\0\rvertical\15horizontal\14directionú\1\1\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0003\3\3\0=\3\5\0024\3\0\0=\3\6\2B\0\2\1K\0\1\0\20shade_filetypes\tsize\1\0\t\20insert_mappings\2\20start_in_insert\2\19shading_factor\3\1\20shade_terminals\1\17hide_numbers\2\17open_mapping\n<C-\\>\14direction\rvertical\18close_on_exit\2\17persist_size\2\0\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\nU\0\1\2\0\3\0\f9\1\0\0\a\1\1\0X\1\3€)\1\25\0L\1\2\0X\1\5€9\1\0\0\a\1\2\0X\1\2€)\1K\0L\1\2\0K\0\1\0\rvertical\15horizontal\14directionú\1\1\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0003\3\3\0=\3\5\0024\3\0\0=\3\6\2B\0\2\1K\0\1\0\20shade_filetypes\tsize\1\0\t\18close_on_exit\2\17persist_size\2\20insert_mappings\2\20start_in_insert\2\19shading_factor\3\1\20shade_terminals\1\17hide_numbers\2\17open_mapping\n<C-t>\14direction\rvertical\0\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -251,12 +257,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["trouble.nvim"] = {
-    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ftrouble\frequire\0" },
-    loaded = true,
-    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-closetag"] = {
     loaded = true,
@@ -267,11 +267,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/skippy/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
-  },
-  ["vim-devicons"] = {
-    loaded = true,
-    path = "/home/skippy/.local/share/nvim/site/pack/packer/start/vim-devicons",
-    url = "https://github.com/ryanoasis/vim-devicons"
   },
   ["vim-graphql"] = {
     loaded = true,
@@ -301,30 +296,30 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\nU\0\1\2\0\3\0\f9\1\0\0\a\1\1\0X\1\3€)\1\25\0L\1\2\0X\1\5€9\1\0\0\a\1\2\0X\1\2€)\1K\0L\1\2\0K\0\1\0\rvertical\15horizontal\14directionú\1\1\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0003\3\3\0=\3\5\0024\3\0\0=\3\6\2B\0\2\1K\0\1\0\20shade_filetypes\tsize\1\0\t\20insert_mappings\2\20start_in_insert\2\19shading_factor\3\1\20shade_terminals\1\17hide_numbers\2\17open_mapping\n<C-\\>\14direction\rvertical\18close_on_exit\2\17persist_size\2\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28plugins.dashboardconfig\frequire\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26plugins.lualineconfig\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: tabline.nvim
+time([[Config for tabline.nvim]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.tabconfig\frequire\0", "config", "tabline.nvim")
+time([[Config for tabline.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28plugins.telescopeconfig\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\nU\0\1\2\0\3\0\f9\1\0\0\a\1\1\0X\1\3€)\1\25\0L\1\2\0X\1\5€9\1\0\0\a\1\2\0X\1\2€)\1K\0L\1\2\0K\0\1\0\rvertical\15horizontal\14directionú\1\1\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0003\3\3\0=\3\5\0024\3\0\0=\3\6\2B\0\2\1K\0\1\0\20shade_filetypes\tsize\1\0\t\18close_on_exit\2\17persist_size\2\20insert_mappings\2\20start_in_insert\2\19shading_factor\3\1\20shade_terminals\1\17hide_numbers\2\17open_mapping\n<C-t>\14direction\rvertical\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads

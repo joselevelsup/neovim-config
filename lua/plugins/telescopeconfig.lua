@@ -9,6 +9,11 @@ telescope.load_extension("file_browser")
 
 telescope.setup{
   defaults = {
+		mappings = {
+			n = {
+				['<C-d>'] = require("telescope.actions").delete_buffer
+			}
+		},
     prompt_prefix = "> ",
     selection_caret = "> ",
     entry_prefix = "  ",

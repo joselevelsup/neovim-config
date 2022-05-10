@@ -6,7 +6,7 @@ if not present and present2 then
 end
 
 local dashboard_menu = {
-	dashboard.button("SPC f f", "  Find File", ":Telescope find_files<CR>"),
+	dashboard.button("SPC f f", "  Find File", ":Telescope file_browser<CR>"),
 	dashboard.button("SPC p p", "  Projects", ":Telescope project<CR>")
 }
 
