@@ -73,6 +73,22 @@ return require('packer').startup({function()
 	}
 
 	use {
+		'TimUntersberger/neogit',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'sindrets/diffview.nvim'
+		},
+		config = function()
+			require("neogit").setup{
+				integrations = {
+					diffview = true
+				}
+			}
+		end
+
+	}
+
+	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
 		config = function()
@@ -112,11 +128,10 @@ return require('packer').startup({function()
   use 'szw/vim-maximizer'
   use 'jparise/vim-graphql'
   use 'rhysd/reply.vim'
-  use 'airblade/vim-rooter'
-  use 'jiangmiao/auto-pairs'
+  -- use 'airblade/vim-rooter'
+	use 'LunarWatcher/auto-pairs'
 
 	-- Colorschemes
-  use 'dylanaraps/wal.vim'
   use {
 		'pineapplegiant/spaceduck',
 		branch = 'main',

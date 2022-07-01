@@ -22,6 +22,7 @@ vim.go.smarttab = true
 vim.o.termguicolors = true
 vim.o.cursorcolumn = true
 vim.o.cursorline = true
+vim.o.guicursor = "i:block"
 vim.o.guifont = "JetBrainsMono Nerd Font:h9"
 
 vim.g.netrw_bufsettings = "nohidden noma nomod nonu nowrap ro buflisted"
