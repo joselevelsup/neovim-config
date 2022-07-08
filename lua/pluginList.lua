@@ -15,6 +15,14 @@ return require('packer').startup({function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+	-- Hydra keymaps
+	use { 
+		'anuvyklack/hydra.nvim',
+		requires = 'anuvyklack/keymap-layer.nvim',
+		config = function ()
+			require "plugins.hydraconfig"
+		end
+	}
 	-- Status Bar
 	use {
 		'hoob3rt/lualine.nvim',
@@ -40,31 +48,6 @@ return require('packer').startup({function()
 		end
 	}
 
-	use {
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("toggleterm").setup{
-				size = function(term)
-					if term.direction == "horizontal" then
-						return 25
-					elseif term.direction == "vertical" then
-						return 75
-					end
-				end,
-				open_mapping = [[<C-t>]],
-				direction = "vertical",
-				hide_numbers = true, -- hide the number column in toggleterm buffers
-				shade_filetypes = {},
-				shade_terminals = false,
-				shading_factor = 1, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
-				start_in_insert = true,
-				insert_mappings = true, -- whether or not the open mapping applies in insert mode
-				persist_size = true,
-				close_on_exit = true,
-			}
-		end
-	}
-
 	use { 
 		'goolord/alpha-nvim',
 		config = function()
@@ -85,8 +68,9 @@ return require('packer').startup({function()
 				}
 			}
 		end
-
 	}
+
+	use 'mrjones2014/smart-splits.nvim'
 
 	use {
 		'nvim-telescope/telescope.nvim',
@@ -97,7 +81,6 @@ return require('packer').startup({function()
 	}
 
 	use "ahmedkhalf/project.nvim"
-
 	use "nvim-telescope/telescope-project.nvim"
 	use "nvim-telescope/telescope-file-browser.nvim"
 
@@ -113,23 +96,31 @@ return require('packer').startup({function()
 			{'rafamadriz/friendly-snippets'},
 			{'jose-elias-alvarez/null-ls.nvim'}
 		},
+		event = "BufRead",
 		config = function()
 			require "plugins.lspconfig"
 		end
 	}
 
 	use "ray-x/lsp_signature.nvim"
-  use 'alvan/vim-closetag'
+	use "alvan/vim-closetag"
   use 'tpope/vim-surround'
   use 'mattn/emmet-vim'
   use 'tpope/vim-commentary'
   use 'editorconfig/editorconfig-vim'
-  use 'Yggdroot/indentLine'
-  use 'szw/vim-maximizer'
+	use "lukas-reineke/indent-blankline.nvim"
+  use {
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup()
+		end
+	}
+	-- use 'szw/vim-maximizer'
   use 'jparise/vim-graphql'
-  use 'rhysd/reply.vim'
-  -- use 'airblade/vim-rooter'
-	use 'LunarWatcher/auto-pairs'
+	use {
+		"windwp/nvim-autopairs",
+			config = function() require("nvim-autopairs").setup {} end
+	}
 
 	-- Colorschemes
   use {

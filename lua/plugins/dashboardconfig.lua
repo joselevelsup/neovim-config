@@ -7,7 +7,8 @@ end
 
 local dashboard_menu = {
 	dashboard.button("SPC f f", "  Find File", ":Telescope file_browser<CR>"),
-	dashboard.button("SPC p p", "  Projects", ":Telescope project<CR>")
+	dashboard.button("SPC p p", "  Projects", ":Telescope project<CR>"),
+	dashboard.button("SPC p u", "ﮮ  Update Plugins", ":PackerSync<CR>"),
 }
 
 local Headers = {
@@ -56,6 +57,8 @@ local Headers = {
 }
 
 local quotes = {
+	"Welcome home, great Programmer.",
+	"Warning: the Dev has entered Neovim.",
 	"Tell me...do you have nothing to say to your codebase...before you write more code? \n \n \n \t \t \t \t \t No.",
 	"Rip and Tear with Neovim",
 	"Your affinity for documentation is apparent. I'm confident you'll find something useful there.",

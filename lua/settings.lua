@@ -23,7 +23,7 @@ vim.o.termguicolors = true
 vim.o.cursorcolumn = true
 vim.o.cursorline = true
 vim.o.guicursor = "i:block"
-vim.o.guifont = "JetBrainsMono Nerd Font:h9"
+vim.go.guifont = "JetBrainsMono Nerd Font:h9"
 
 vim.g.netrw_bufsettings = "nohidden noma nomod nonu nowrap ro buflisted"
 vim.g.netrw_liststyle = 3
@@ -35,7 +35,7 @@ vim.g.material_style = "deep ocean"
 
 vim.cmd("set shortmess+=c")
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme mosel')
+vim.cmd('colorscheme kanagawa')
 
 vim.g.indentLine_fileTypeExclude = { 'dashboard' }
 vim.g.indentLine_setConceal = 0
